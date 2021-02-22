@@ -1,20 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'bootstrap/base.html' %}
 
-<head>
-    <meta charset="utf-8">
-    <title>
-        {% block title %}Flask Platzi |{% endblock %}
-    </title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
-</head>
+{% block head %}
+{{super()}}
+<title>
+    {% block title %}Flask Platzi |{% endblock %}
+</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+{% endblock %}
 
-<body>
-    <header>
-        {% include 'navbar.html' %}
-    </header>
-    {% block content %}
-    {% endblock %}
-</body>
 
-</html>
+
+
+{% block body %}
+{% block navbar %}{% include 'navbar.html' %}{% endblock %}
+{% block content %} {% endblock %}
+{% endblock %}

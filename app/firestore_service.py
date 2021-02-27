@@ -32,10 +32,10 @@ def put_todo(user_id, description):
 
 
 def delete_todo(user_id, todo_id):
-
-    todo_ref = db.collection('users/{}/todos/todo_id'.format(user_id, todo_id))
     """
-    Metodo mas vervoso para hacer lo mismo de arriba
-    todo_ref = db.collection('users').document(user_id).collection('todos').document(todo_id)
+    Metodo menos vervoso para hacer lo mismo de de abajo... pero soy retrasado y no me funciona
+    todo_ref = db.collection('users/{}/todos/{}'.format(user_id, todo_id))
     """
+    todo_ref = db.collection('users').document(
+        user_id).collection('todos').document(todo_id)
     todo_ref.delete()

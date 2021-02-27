@@ -18,6 +18,11 @@ Welcome
 <a href="{{ url_for('index') }}">Ir a inicio</a>
 {% endif %}
 
+<div class="container">
+    <h2>Here you can create tasks</h2>
+    {{wtf.quick_form(todo_form)}}
+</div>
+
 <ul>
     {% for todo in todos %}
     {{macros.render_todo(todo)}}

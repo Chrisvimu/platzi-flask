@@ -1,3 +1,8 @@
 {% macro render_todo(todo) %}
-<li>Description: {{ todo.to_dict().description }}</li>
+
+<li class="list-group-item">
+    <span class="badge">{{ todo.to_dict().done }}</span>
+    Description: {{ todo.to_dict().description }}
+</li>
+
 {% endmacro %}

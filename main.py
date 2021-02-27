@@ -4,7 +4,7 @@ from flask_bootstrap import Bootstrap
 from flask_login import login_required, current_user
 from app import create_app
 from app.forms import TodoForm
-from app.firestore_service import get_users, get_todos, put_todo
+from app.firestore_service import get_users, get_todos, put_todo, delete_todo
 
 app = create_app()
 
@@ -55,3 +55,12 @@ def hello():
 
     # two ** before a dictionary expend it automatically
     return render_template('hello.html', **context)
+
+
+# ruta dinamica, puede obetener informacion o id
+@app.route('/todos/delete/<todo_id>', methods=['POST'])
+def delete(todo_id):
+    user_id = current_user.id
+    delete_todo(user_id=user_id, todo_id=todo_id)
+
+    return redirect(url_for('hello'))

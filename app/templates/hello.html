@@ -23,9 +23,10 @@ Welcome
     {{wtf.quick_form(todo_form)}}
 </div>
 
-<ul>
+<ul class="list-group">
     {% for todo in todos %}
     {{macros.render_todo(todo)}}
     {% endfor %}
 </ul>
+
 {% endblock %}
